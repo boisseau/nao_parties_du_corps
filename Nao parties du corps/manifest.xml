@@ -4,12 +4,12 @@
   <name lang="en_US">Nao parties du corps</name>
  </names>
  <supportedLanguages>
-  <language>en_US</language>
   <language>fr_FR</language>
  </supportedLanguages>
  <descriptionLanguages>
   <language>en_US</language>
   <language>fr_FR</language>
+  <language>el_GR</language>
  </descriptionLanguages>
  <contents>
   <behaviorContent path="behavior_1">
