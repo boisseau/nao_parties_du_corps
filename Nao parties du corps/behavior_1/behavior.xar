@@ -1646,7 +1646,7 @@ class MyClass(GeneratedClass):
 			"English" : " Hello ",
 			"Spanish" : " Hola ",
 			"Finnish" : " Hei ",
-			"French" : " Touche moi une partie du corps et je te dirais ce que sais ",
+			"French" : " découvre les parties du coprs  ",
 			"Italian" : " Ciao ",
 			"Japanese" : " こんにちは ",
 			"Korean" : " 안녕하세요 ",
@@ -1692,7 +1692,7 @@ class MyClass(GeneratedClass):
                                                         <![CDATA[Hei]]>
 </finnish>
                                                     <french>
-                                                        <![CDATA[Touche moi une partie du corps et je te dirais ce que sais]]>
+                                                        <![CDATA[découvre les parties du coprs ]]>
 </french>
                                                     <italian>
                                                         <![CDATA[Ciao]]>
@@ -1927,7 +1927,7 @@ class MyClass(GeneratedClass):
 			"English" : " Hello ",
 			"Spanish" : " Hola ",
 			"Finnish" : " Hei ",
-			"French" : " pied gauche ",
+			"French" : " mon pied gauche ",
 			"Italian" : " Ciao ",
 			"Japanese" : " こんにちは ",
 			"Korean" : " 안녕하세요 ",
@@ -1973,7 +1973,7 @@ class MyClass(GeneratedClass):
                                                         <![CDATA[Hei]]>
 </finnish>
                                                     <french>
-                                                        <![CDATA[pied gauche]]>
+                                                        <![CDATA[mon pied gauche]]>
 </french>
                                                     <italian>
                                                         <![CDATA[Ciao]]>
@@ -2039,7 +2039,7 @@ class MyClass(GeneratedClass):
 			"English" : " Hello ",
 			"Spanish" : " Hola ",
 			"Finnish" : " Hei ",
-			"French" : " pied droit ",
+			"French" : " mon pied droit ",
 			"Italian" : " Ciao ",
 			"Japanese" : " こんにちは ",
 			"Korean" : " 안녕하세요 ",
@@ -2085,7 +2085,7 @@ class MyClass(GeneratedClass):
                                                         <![CDATA[Hei]]>
 </finnish>
                                                     <french>
-                                                        <![CDATA[pied droit]]>
+                                                        <![CDATA[mon pied droit]]>
 </french>
                                                     <italian>
                                                         <![CDATA[Ciao]]>
@@ -2521,7 +2521,7 @@ class MyClass(GeneratedClass):
 			"English" : " Hello ",
 			"Spanish" : " Hola ",
 			"Finnish" : " Hei ",
-			"French" : " pied gauche ",
+			"French" : " mon pied gauche ",
 			"Italian" : " pied gauche ",
 			"Japanese" : " こんにちは ",
 			"Korean" : " 안녕하세요 ",
@@ -2567,7 +2567,7 @@ class MyClass(GeneratedClass):
                                                         <![CDATA[Hei]]>
 </finnish>
                                                     <french>
-                                                        <![CDATA[pied gauche]]>
+                                                        <![CDATA[mon pied gauche]]>
 </french>
                                                     <italian>
                                                         <![CDATA[pied gauche]]>
@@ -2633,7 +2633,7 @@ class MyClass(GeneratedClass):
 			"English" : " Hello ",
 			"Spanish" : " Hola ",
 			"Finnish" : " Hei ",
-			"French" : " pied droit ",
+			"French" : " mon pied droit ",
 			"Italian" : " pied droit ",
 			"Japanese" : " こんにちは ",
 			"Korean" : " 안녕하세요 ",
@@ -2679,7 +2679,7 @@ class MyClass(GeneratedClass):
                                                         <![CDATA[Hei]]>
 </finnish>
                                                     <french>
-                                                        <![CDATA[pied droit]]>
+                                                        <![CDATA[mon pied droit]]>
 </french>
                                                     <italian>
                                                         <![CDATA[pied droit]]>
@@ -2745,7 +2745,7 @@ class MyClass(GeneratedClass):
 			"English" : " Hello ",
 			"Spanish" : " Hola ",
 			"Finnish" : " Hei ",
-			"French" : " main gauche ",
+			"French" : " ma main gauche ",
 			"Italian" : " Ciao ",
 			"Japanese" : " こんにちは ",
 			"Korean" : " 안녕하세요 ",
@@ -2791,7 +2791,7 @@ class MyClass(GeneratedClass):
                                                         <![CDATA[Hei]]>
 </finnish>
                                                     <french>
-                                                        <![CDATA[main gauche]]>
+                                                        <![CDATA[ma main gauche]]>
 </french>
                                                     <italian>
                                                         <![CDATA[Ciao]]>
@@ -2857,7 +2857,7 @@ class MyClass(GeneratedClass):
 			"English" : " Hello ",
 			"Spanish" : " Hola ",
 			"Finnish" : " Hei ",
-			"French" : " main droite ",
+			"French" : " ma main droite ",
 			"Italian" : " Ciao ",
 			"Japanese" : " こんにちは ",
 			"Korean" : " 안녕하세요 ",
@@ -2903,7 +2903,7 @@ class MyClass(GeneratedClass):
                                                         <![CDATA[Hei]]>
 </finnish>
                                                     <french>
-                                                        <![CDATA[main droite]]>
+                                                        <![CDATA[ma main droite]]>
 </french>
                                                     <italian>
                                                         <![CDATA[Ciao]]>
@@ -3275,9 +3275,10 @@ class MyClass(GeneratedClass):
 
     def onInput_onStart(self):
         import random
-        parties_du_corps = ['main droite','main                                                                          gauche', 'pied droit', 'pied gauche']
-        partie_du_corps = random.choice(parties_du_corps)
-        self.onStopped(partie_du_corps)
+        parties_du_corps = [('ma', 'main droite'), ('ma', 'main                                                                          gauche'), ('mon', 'pied droit'), ('mon', 'pied gauche')]
+        (possessif, partie_du_corps) = random.choice(parties_du_corps)
+        self.onPartieDuCorps(partie_du_corps)
+        self.onPartieDuCorpsEtPossessif(possessif + ' ' + partie_du_corps)
 
     def onInput_onStop(self):
         self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
@@ -3287,7 +3288,8 @@ class MyClass(GeneratedClass):
                                                 <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
                                                 <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
                                                 <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
-                                                <Output name="onStopped" type="3" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
+                                                <Output name="onPartieDuCorps" type="3" type_size="1" nature="1" inner="0" tooltip="" id="4" />
+                                                <Output name="onPartieDuCorpsEtPossessif" type="3" type_size="1" nature="1" inner="0" tooltip="" id="5" />
                                             </Box>
                                             <Box name="Say Text (1)" id="21" localization="8" tooltip="Say the text received on its input." x="279" y="42">
                                                 <bitmap>media/images/box/interaction/say.png</bitmap>
@@ -3389,9 +3391,9 @@ class MyClass(GeneratedClass):
         if self.expected is None:
             return
         if self.actual.lower().strip() == self.expected.lower().strip():
-            self.signalsReceived("oui c'est ça")
+            self.signalsReceived("oui c'est %s" %self.actual)
         else:
-            self.signalsReceived("ce n'est pas ça c'est %s" % self.actual)
+            self.signalsReceived("ce n'est pas %s" % self.expected + " c'est %s" % self.actual)
         self.onInput_reset()
     def onInput_signal1(self, actual):
         self.actual = actual
@@ -3533,7 +3535,6 @@ class MyClass(GeneratedClass):
                                             <Link inputowner="9" indexofinput="2" outputowner="11" indexofoutput="3" />
                                             <Link inputowner="9" indexofinput="2" outputowner="12" indexofoutput="3" />
                                             <Link inputowner="9" indexofinput="2" outputowner="14" indexofoutput="3" />
-                                            <Link inputowner="9" indexofinput="3" outputowner="20" indexofoutput="4" />
                                             <Link inputowner="17" indexofinput="2" outputowner="9" indexofoutput="5" />
                                             <Link inputowner="16" indexofinput="2" outputowner="9" indexofoutput="5" />
                                             <Link inputowner="4" indexofinput="2" outputowner="16" indexofoutput="3" />
@@ -3552,6 +3553,7 @@ class MyClass(GeneratedClass):
                                             <Link inputowner="21" indexofinput="2" outputowner="20" indexofoutput="4" />
                                             <Link inputowner="20" indexofinput="2" outputowner="0" indexofoutput="2" />
                                             <Link inputowner="0" indexofinput="4" outputowner="18" indexofoutput="5" />
+                                            <Link inputowner="9" indexofinput="3" outputowner="20" indexofoutput="5" />
                                         </Diagram>
                                     </BehaviorKeyframe>
                                 </BehaviorLayer>
@@ -3593,8 +3595,8 @@ class MyClass(GeneratedClass):
                         <Link inputowner="17" indexofinput="2" outputowner="18" indexofoutput="4" />
                         <Link inputowner="16" indexofinput="2" outputowner="15" indexofoutput="3" />
                         <Link inputowner="22" indexofinput="2" outputowner="18" indexofoutput="5" />
-                        <Link inputowner="9" indexofinput="2" outputowner="0" indexofoutput="2" />
                         <Link inputowner="9" indexofinput="2" outputowner="22" indexofoutput="4" />
+                        <Link inputowner="9" indexofinput="2" outputowner="0" indexofoutput="2" />
                     </Diagram>
                 </BehaviorKeyframe>
             </BehaviorLayer>
